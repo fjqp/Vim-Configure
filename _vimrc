@@ -150,7 +150,7 @@ nmap <S-F7> :exec "!git log"<CR>
 
 nmap <S-F8> :call ShowLog()<CR>
 function! ShowLog()
-    while 1 = 1
+    while 1 == 1
         let log = input("INFO:log:")
         if strlen(log) == 0
             echo "\n"
@@ -159,4 +159,5 @@ function! ShowLog()
         else
             exec join(['!git show', log])
         endif
+    endwhile
 endfunction
