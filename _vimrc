@@ -147,3 +147,16 @@ function! GitPush()
 endfunction
 
 nmap <S-F7> :exec "!git log"<CR>
+
+nmap <S-F8> :call ShowLog()<CR>
+function! ShowLog()
+    while 1 = 1
+        let log = input("INFO:log:")
+        if strlen(log) == 0
+            echo "\n"
+            echo "INFO:log name can't be none."
+            continue
+        else
+            exec join(['!git show', log])
+        endif
+endfunction
