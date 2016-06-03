@@ -138,9 +138,12 @@ function! GitPush()
             echo "\n"
             echo "INFO:remote name can't be none"
         else
+            let cmd = join(["!git push --set-upstream",rn, 'master'])
+            exec cmd
+            exec "!git log"
             break
         endif
     endwhile
-    let cmd = join(["!git push --set-upstream",rn, 'master'])
-    exec cmd
 endfunction
+
+nmap <S-F7> :exec "!git log"<CR>
