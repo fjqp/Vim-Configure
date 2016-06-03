@@ -135,11 +135,11 @@ func! Commit()
     endif
 endfunc
 
-nmap <S-F6> :call GitPush()<CR>
-function! GitPush()
-    exec "!git diff"
-    exec "!git branch -a"
+nmap <S-F6> :exec "!git diff"<CR>
+nmap <S-F7> :exec "!git branch -a"<CR>
 
+nmap <S-F8> :call GitPush()<CR>
+function! GitPush()
     let rn = ''
     while 1 == 1
         let rn = input('INFO:remote name you want to push:')
@@ -155,9 +155,9 @@ function! GitPush()
     endwhile
 endfunction
 
-nmap <S-F7> :exec "!git log"<CR>
+nmap <S-F9> :exec "!git log"<CR>
 
-nmap <S-F8> :call ShowLog()<CR>
+nmap <S-F10> :call ShowLog()<CR>
 function! ShowLog()
     while 1 == 1
         let log = input("INFO:log:")
@@ -170,4 +170,15 @@ function! ShowLog()
             break
         endif
     endwhile
+endfunction
+
+nmap <S-F11> :call CheckoutNewBranch()<CR>
+function! CheckoutNewBranch()
+    let branch = input("INFO:branch name:")
+    if strlen(branch) == 0
+        echo "\n"
+        echo "INFO:branch name can't be none."
+    else
+        exec join(["!git checkout",branch])
+    endif
 endfunction
