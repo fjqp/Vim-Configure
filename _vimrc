@@ -67,6 +67,7 @@ function! InitGit()
                 exec "!git config --global core.editor vim"
                 exec "!git config --global core.quotepath false"
                 exec "!git config --global merge.tool vimdiff"
+                exec "!git config --global credential.helper wincred"
                 exec "!git config --list"
                 break
             else
@@ -123,7 +124,16 @@ endfunction
 
 nmap <S-F3> :exec "!git status"<CR>
 nmap <S-F4> :exec "!git add %"<CR>
-nmap <S-F5> :exec '!git commit -m "commit %"'<CR>
+nmap <S-F5> :call Commit()<CR>
+func! Commit()
+    let comment = input('INFO:comment:')
+    if strlen(comment) == 0
+        echo "\n"
+        echo "INFO:please give the valid git commit -m comment."
+    else
+        exec join(['!git commit -m', comment])
+    endif
+endfunc
 
 nmap <S-F6> :call GitPush()<CR>
 function! GitPush()
@@ -140,7 +150,6 @@ function! GitPush()
         else
             let cmd = join(["!git push --set-upstream",rn, 'master'])
             exec cmd
-            exec "!git log"
             break
         endif
     endwhile
