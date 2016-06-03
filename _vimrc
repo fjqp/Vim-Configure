@@ -158,6 +158,7 @@ function! ShowLog()
             continue
         else
             exec join(['!git show', log])
+            break
         endif
     endwhile
 endfunction
