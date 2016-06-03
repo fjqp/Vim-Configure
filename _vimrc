@@ -1,10 +1,10 @@
-map <C-F1> :NERDTreeToggle<CR>
-imap <C-F1> <ESC> :NERDTreeToggle<CR>
+map <F3> :NERDTreeToggle<CR>
+imap <F3> <ESC> :NERDTreeToggle<CR>
 let NERDTreeChDirMode=2  
 let NERDTreeShowBookmarks=1 
 let NERDTreeMinimalUI=1 
 
-:nmap <silent> <C-F2> <ESC>:Tlist<RETURN>
+:nmap <silent> <F9> <ESC>:Tlist<RETURN>
 let Tlist_Auto_Open=0 
 let Tlist_Show_One_File = 1 
 let Tlist_File_Fold_Auto_Close = 1
