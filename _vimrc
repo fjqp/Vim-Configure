@@ -55,7 +55,7 @@ function! InitGit()
                     echo "\n"
                     echo "INFO:user name can't be none."
                     continue
-                elif strlen(user_email) == 0
+                elseif strlen(user_email) == 0
                     echo "\n"
                     echo "INFO:user email can't be none."
                     continue
@@ -73,7 +73,7 @@ function! InitGit()
                 echo "\n"
                 echo "INFO:Please give the correct password."
             endif    
-        elseif ms == 'no'
+        else
             break
         endif    
     endwhile
@@ -91,10 +91,14 @@ function! AddRemote()
             if passwd == 'fjqp'
                 let rn = input('INFO:remote name:')
                 let ru = input('INFO:remote url:')
+                if strlen(rn) == 0
+                    echo "\n"
                     echo "INFO:remote name can't be none"
                     continue
                 endif 
+
                 if strlen(ru) == 0
+                    echo "\n"
                     echo "INFO:remote url can't be none"
                     continue
                 endif
@@ -107,14 +111,14 @@ function! AddRemote()
                 exec cmd
                 break
             else
-                echo join(['\n','INFO:Please give the correct password.'])
+                echo "\n"
+                echo 'INFO:Please give the correct password.'
             endif
         else
             echo "\n"
             break
         endif
     endwhile
-
 endfunction
 
 nmap <S-F3> :exec "!git status"<CR>
@@ -131,12 +135,12 @@ function! GitPush()
         let rn = input('INFO:remote name you want to push:')
         echo "\n"
         if strlen(rn) == 0
+            echo "\n"
             echo "INFO:remote name can't be none"
         else
             break
         endif
     endwhile
     let cmd = join(["!git push --set-upstream",rn, 'master'])
-
     exec cmd
 endfunction
