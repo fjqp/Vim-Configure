@@ -43,21 +43,21 @@ color ron
 nmap <S-F1> :call InitGit()<CR>
 function! InitGit()
     while 1 == 1
-        let ms = input("Do you want to run git init?[yes/no]:")
+        let ms = input("INFO:Do you want to run git init?[yes/no]:")
         echo "\n"
         if ms == 'yes'
-            let passwd = input('YOUR PASSWD:')
+            let passwd = input('INFO:YOUR PASSWD:')
             if passwd == 'fjqp@outlook.com'
                 let user_name = input('user.name:')
                 let user_email = input('user.email:')
 
                 if strlen(user_name) == 0
                     echo "\n"
-                    echo "user name can't be none."
+                    echo "INFO:user name can't be none."
                     continue
                 elif strlen(user_email) == 0
                     echo "\n"
-                    echo "user email can't be none."
+                    echo "INFO:user email can't be none."
                     continue
                 endif
 
@@ -68,9 +68,10 @@ function! InitGit()
                 exec "!git config --global core.quotepath false"
                 exec "!git config --global merge.tool vimdiff"
                 exec "!git config --list"
+                break
             else
                 echo "\n"
-                echo "Please give the correct password."
+                echo "INFO:Please give the correct password."
             endif    
         elseif ms == 'no'
             break
@@ -84,29 +85,29 @@ function! AddRemote()
     let rn = ''
     let ru = ''
     while 1 ==1 
-        let ms = input('Do you want to add a remote repos?[yes/no]:')
+        let ms = input('INFO:Do you want to add a remote repos?[yes/no]:')
         if ms == "yes"
-            let passwd = input('YOUR PASSWORD:')
+            let passwd = input('INFO:YOUR PASSWORD:')
             if passwd == 'fjqp'
-                let rn = input('remote name:')
-                let ru = input('remote url:')
-                if strlen(rn) == 0
-                    echo "remote name can't be none"
+                let rn = input('INFO:remote name:')
+                let ru = input('INFO:remote url:')
+                    echo "INFO:remote name can't be none"
                     continue
                 endif 
                 if strlen(ru) == 0
-                    echo "remote url can't be none"
+                    echo "INFO:remote url can't be none"
                     continue
                 endif
 
                 let cmd = join(['!git remote add', rn,ru])
                 echo '\n'
-                let ms = join(['You will exec', cmd])
+                let ms = join(['INFO:You will exec', cmd])
                 echo ms
-                exec input('Press any key to exec it')
+                exec input('INFO:Press any key to exec it')
                 exec cmd
+                break
             else
-                echo join(['\n','Please give the correct password.'])
+                echo join(['\n','INFO:Please give the correct password.'])
             endif
         else
             echo "\n"
@@ -127,10 +128,10 @@ function! GitPush()
 
     let rn = ''
     while 1 == 1
-        let rn = input('remote name you want to push:')
+        let rn = input('INFO:remote name you want to push:')
         echo "\n"
         if strlen(rn) == 0
-            echo "remote name can't be none"
+            echo "INFO:remote name can't be none"
         else
             break
         endif
