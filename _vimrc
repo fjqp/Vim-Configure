@@ -78,8 +78,7 @@ function! InitGit()
             break
         endif    
     endwhile
-        
-    endfunction
+endfunction
 
 nmap <S-F2> :call AddRemote()<CR>
 function! AddRemote()
@@ -123,8 +122,12 @@ function! AddRemote()
 endfunction
 
 nmap <S-F3> :exec "!git status"<CR>
-nmap <S-F4> :exec "!git add %"<CR>
-nmap <S-F5> :call Commit()<CR>
+
+nmap <S-F4> :exec "!git branch -a"<CR>
+
+nmap <S-F5> :exec "!git add %"<CR>
+
+nmap <S-F6> :call Commit()<CR>
 func! Commit()
     let comment = input('INFO:comment:')
     if strlen(comment) == 0
@@ -135,8 +138,7 @@ func! Commit()
     endif
 endfunc
 
-nmap <S-F6> :exec "!git diff"<CR>
-nmap <S-F7> :exec "!git branch -a"<CR>
+nmap <S-F7> :exec "!git diff"<CR>
 
 nmap <S-F8> :call GitPush()<CR>
 function! GitPush()
