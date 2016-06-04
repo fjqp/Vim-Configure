@@ -154,7 +154,7 @@ function! GitPush()
             echo "\n"
             echo "INFO:branch name can't be none."
         else
-            let cmd = join(["!git push --set-upstream",rn, 'master'])
+            let cmd = join(["!git push --set-upstream",rn, branch])
             exec cmd
             break
         endif
