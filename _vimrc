@@ -260,3 +260,86 @@ func! Reset()
 endfunc
 
 "Django相关快捷键
+"Ctrl + F1 创建虚拟环境
+"1. cd到用户想要创建虚拟环境的目录
+"2. 请求用户输入虚拟环境名称
+"3. 根据名称创建虚拟环境
+"4. 激活虚拟环境
+namp <C-F1> :call CreateVirtualenv()<CR>
+func! CreateVirtualenv()
+    let dir = input("INFO:Please type into the directory that you want to create the virtuanenv for django project:")
+    if strlen(dir) == 0
+        echo "\n"
+        echo "INFO:dir can't be none."
+    else
+        exec join(["!cd",dir])
+    endif
+
+    let vir = input("INFO:Please type into the virtualenv name you wanto created:")
+    if strlen(vir) == 0
+        echo "\n"
+        echo "INFO:vir can't be none."
+    else
+        exec join(["!virtualenv",vir])
+        exec join["!cd",vir,"\Scripts"])
+        exec "!activate.bat"
+    endif
+endfunc
+
+"Ctrl + F2 安装模块
+nmap <C-F2> :call PipInstall()<CR>
+func! PipInstall()
+    let module = input("INFO:Please type into the module name:")
+    if strlen(module) == 0
+        echo "\n"
+        echo "INFO:module name can't be none."
+    else
+        exec join(["!pip install", module])
+    endif
+endfunc
+
+"Ctrl + F3 创建django项目
+"1. cd 到用户想要创建工程的目录
+"2. 请求用户输入工程名
+"3. 根据工程名创建项目
+nmap <C-F3> :call CreateDjangoProject()<CR>
+func! CreateDjangoProject()
+    let dir = input("INFO:Please type into the directory that you want to create the project name for django project:")
+    if strlen(dir) == 0
+        echo "\n"
+        echo "INFO:dir can't be none."
+    else
+        exec join(["!cd",dir])
+    endif
+    
+    let pro = input("INFO:Please type into the project name:")
+    if strlen(pro) == 0
+        echo "\n"
+        echo "INFO:project name can't be none."
+    else
+        exec join(['django-admin startproject', pro])
+    endif
+endfunc
+
+"Ctrl + F4 创建app
+"1. cd到manage.py 目录
+"2. 请求用户输入app名称
+"3. 更具app名创建app名称
+nmap <C-F4> :call CreateDjangoApp()<CR>
+func! CreateDjangoApp()
+    let dir = input("INFO:Please type into the directory that you want to create the app name for django project:")
+    if strlen(dir) == 0
+        echo "\n"
+        echo "INFO:dir can't be none."
+    else
+        exec join(["!cd",dir])
+    endif
+    
+    let app = input("INFO:Please type into the app name taht you want to created:") 
+    if strlen(app) == 0
+        echo "\n"
+        echo "INFO:app name can't be none."
+    else
+        exec join(["!python manage.py startapp", app])
+    endif
+endfunc
