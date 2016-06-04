@@ -207,4 +207,8 @@ function! DeleteBranch()
     endif
 endfunction
 
+nmap <C-S-F2> :call Stash()<CR>
+func! Stash()
+    exec "!git stash"
+endfunc
 
