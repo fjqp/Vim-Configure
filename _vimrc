@@ -220,3 +220,14 @@ func! Merge()
         exec join(["!git merge", branch])
     endif
 endfunc
+
+nmap <C-S-F5> :call Pull()<CR>
+func! Pull()
+    let branch = input("INFO:Please type into the remote branch name to pull:")
+    if strlen(branch) == 0
+        echo "\n"
+        echo "INFO:branch name can't be none."
+    else
+        exec join(["!git pull", branch, "master"])
+    endif
+endfunc
