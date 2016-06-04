@@ -150,7 +150,7 @@ function! GitPush()
         if strlen(rn) == 0
             echo "\n"
             echo "INFO:remote name can't be none"
-        elsif strlen(branch) == 0
+        elseif strlen(branch) == 0
             echo "\n"
             echo "INFO:branch name can't be none."
         else
