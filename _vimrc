@@ -176,11 +176,16 @@ endfunction
 
 nmap <S-F11> :call CheckoutNewBranch()<CR>
 function! CheckoutNewBranch()
-    let branch = input("INFO:branch name:")
+    let branch = input("INFO:You will create a new branch, type into the branch name you want:")
     if strlen(branch) == 0
         echo "\n"
         echo "INFO:branch name can't be none."
     else
         exec join(["!git checkout",branch])
     endif
+endfunction
+
+nmap <S-F12> :call SwitchBranch()<CR>
+function! SwitchBranch()
+
 endfunction
