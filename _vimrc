@@ -195,3 +195,16 @@ function! SwitchBranch()
         exec join(['!git checkout', branch])
     endif
 endfunction
+
+nmap <C-S-F1> :call DeleteBranch()<CR>
+function! DeleteBranch()
+    let branch = input("INFO:Please type into the branch name to delete:")
+    if strlen(branch) == 0
+        echo "\n"
+        echo "INFO:branch name can't be none."
+    else
+        exec join(['!git branch -D', branch])
+    endif
+endfunction
+
+
