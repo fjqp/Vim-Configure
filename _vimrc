@@ -247,3 +247,16 @@ func! Pull()
         exec join(["!git pull", branch, "master"])
     endif
 endfunc
+
+nmap <C-S-F7> :call Reset()<CR>
+func! Reset()
+    let commit_index = input("INFO:Please type into the commit_index name you want to back:")
+    if strlen(commit_index) == 0
+        echo "\n"
+        echo "INFO:commit_index name can't be none."
+    else
+        exec join(['!git reset', commit_index])
+    endif
+endfunc
+
+"Django相关快捷键
