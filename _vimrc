@@ -181,7 +181,7 @@ function! CheckoutNewBranch()
         echo "\n"
         echo "INFO:branch name can't be none."
     else
-        exec join(["!git checkout",branch])
+        exec join(["!git checkou -b",branch])
     endif
 endfunction
 
