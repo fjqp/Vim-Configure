@@ -37,7 +37,7 @@ language messages zh_CN.utf-8
 
 noswapfile
 set go=
-color ron
+color desert
 
 "git快捷键设置
 nmap <S-F1> :call InitGit()<CR>
@@ -264,25 +264,14 @@ endfunc
 "1. cd到用户想要创建虚拟环境的目录
 "2. 请求用户输入虚拟环境名称
 "3. 根据名称创建虚拟环境
-"4. 激活虚拟环境
 nmap <C-F1> :call CreateVirtualenv()<CR>
 func! CreateVirtualenv()
-    let dir = input("INFO:Please type into the directory that you want to create the virtuanenv for django project:")
-    if strlen(dir) == 0
-        echo "\n"
-        echo "INFO:dir can't be none."
-    else
-        exec join(["!cd",dir])
-    endif
-
     let vir = input("INFO:Please type into the virtualenv name you wanto created:")
     if strlen(vir) == 0
         echo "\n"
         echo "INFO:vir can't be none."
     else
         exec join(["!virtualenv",vir])
-        exec join["!cd",vir,"\Scripts"])
-        exec "!activate.bat"
     endif
 endfunc
 
@@ -304,20 +293,12 @@ endfunc
 "3. 根据工程名创建项目
 nmap <C-F3> :call CreateDjangoProject()<CR>
 func! CreateDjangoProject()
-    let dir = input("INFO:Please type into the directory that you want to create the project name for django project:")
-    if strlen(dir) == 0
-        echo "\n"
-        echo "INFO:dir can't be none."
-    else
-        exec join(["!cd",dir])
-    endif
-    
     let pro = input("INFO:Please type into the project name:")
     if strlen(pro) == 0
         echo "\n"
         echo "INFO:project name can't be none."
     else
-        exec join(['django-admin startproject', pro])
+        exec join(['!django-admin startproject', pro])
     endif
 endfunc
 
@@ -327,15 +308,6 @@ endfunc
 "3. 更具app名创建app名称
 nmap <C-F4> :call CreateDjangoApp()<CR>
 func! CreateDjangoApp()
-    echo join([" ******************************************************************************************************\n", "*****************************Create Virtualenv For Django Project*************************************\n", "******************************************************************************************************"])
-    let dir = input("INFO:Please type into the directory that you want to create the app name for django project:")
-    if strlen(dir) == 0
-        echo "\n"
-        echo "INFO:dir can't be none."
-    else
-        exec join(["!cd",dir])
-    endif
-    
     let app = input("INFO:Please type into the app name taht you want to created:") 
     if strlen(app) == 0
         echo "\n"
