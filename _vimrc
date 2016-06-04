@@ -211,9 +211,21 @@ function! DeleteBranch()
     endif
 endfunction
 
-nmap <C-S-F2> :exec "!git stash"<CR>
-nmap <C-S-F3> :exec "!git stash pop"<CR>
-nmap <C-S-F4> :call Merge()<CR>
+nmap <C-S-F2> :call DeleteRemoteBranch()<CR>
+function! DeleteRemoteBranch()
+    let branch = input("INFO:Please type into the branch name to delete:")
+    if strlen(branch) == 0
+        echo "\n"
+        echo "INFO:branch name can't be none."
+    else
+        exec join(['!git branch -r -d', branch])
+    endif
+endfunction
+
+
+nmap <C-S-F3> :exec "!git stash"<CR>
+nmap <C-S-F4> :exec "!git stash pop"<CR>
+nmap <C-S-F5> :call Merge()<CR>
 func! Merge()
     let branch = input("INFO:Please type into the branch to merge:")
     if strlen(branch) == 0
@@ -225,7 +237,7 @@ func! Merge()
     endif
 endfunc
 
-nmap <C-S-F5> :call Pull()<CR>
+nmap <C-S-F6> :call Pull()<CR>
 func! Pull()
     let branch = input("INFO:Please type into the remote branch name to pull:")
     if strlen(branch) == 0
