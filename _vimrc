@@ -187,5 +187,11 @@ endfunction
 
 nmap <S-F12> :call SwitchBranch()<CR>
 function! SwitchBranch()
-
+    let branch = input("INFO:Please type into the branch name that you want to switch:")
+    if strlen(branch) == 0
+        echo "\n"
+        echo "INFO:branch name can't be none"
+    else
+        exec join(['!git checkout', branch])
+    endif
 endfunction
