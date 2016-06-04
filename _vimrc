@@ -145,10 +145,14 @@ function! GitPush()
     let rn = ''
     while 1 == 1
         let rn = input('INFO:remote name you want to push:')
+        let branch = input('INFO:Please type into the branch you want to push:')
         echo "\n"
         if strlen(rn) == 0
             echo "\n"
             echo "INFO:remote name can't be none"
+        elsif strlen(branch) == 0
+            echo "\n"
+            echo "INFO:branch name can't be none."
         else
             let cmd = join(["!git push --set-upstream",rn, 'master'])
             exec cmd
