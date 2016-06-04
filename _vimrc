@@ -265,7 +265,7 @@ endfunc
 "2. 请求用户输入虚拟环境名称
 "3. 根据名称创建虚拟环境
 "4. 激活虚拟环境
-namp <C-F1> :call CreateVirtualenv()<CR>
+nmap <C-F1> :call CreateVirtualenv()<CR>
 func! CreateVirtualenv()
     let dir = input("INFO:Please type into the directory that you want to create the virtuanenv for django project:")
     if strlen(dir) == 0
@@ -327,6 +327,7 @@ endfunc
 "3. 更具app名创建app名称
 nmap <C-F4> :call CreateDjangoApp()<CR>
 func! CreateDjangoApp()
+    echo join([" ******************************************************************************************************\n", "*****************************Create Virtualenv For Django Project*************************************\n", "******************************************************************************************************"])
     let dir = input("INFO:Please type into the directory that you want to create the app name for django project:")
     if strlen(dir) == 0
         echo "\n"
