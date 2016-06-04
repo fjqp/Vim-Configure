@@ -209,4 +209,14 @@ endfunction
 
 nmap <C-S-F2> :exec "!git stash"<CR>
 nmap <C-S-F3> :exec "!git stash pop"<CR>
-
+nmap <C-S-F4> :call Merge()<CR>
+func! Merge()
+    let branch = input("INFO:Please type into the branch to merge:")
+    if strlen(branch) == 0
+        echo "\n"
+        echo "INFO:branch name can't be none."
+    else
+        exec "!git checkout master"
+        exec join(["!git merge", branch])
+    endif
+endfunc
