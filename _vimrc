@@ -4,17 +4,10 @@ let NERDTreeChDirMode=2
 let NERDTreeShowBookmarks=1 
 let NERDTreeMinimalUI=1 
 
-:nmap <silent> <F9> <ESC>:Tlist<RETURN>
-let Tlist_Auto_Open=0 
-let Tlist_Show_One_File = 1 
-let Tlist_File_Fold_Auto_Close = 1
-let Tlist_Exit_OnlyWindow = 1  
-let Tlist_Use_Right_Window = 1 
-let Tlist_Sort_Type = "name"    
-let Tlist_Ctags_Cmd = 'ctags'
-
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+nmap <F9> :TagbarToggle<CR>
 
 set autoindent 
 set tabstop=4
@@ -33,7 +26,9 @@ filetype on
 noswapfile
 color desert
 syntax on
+filetype plugin on
+
+let g:pydiction_location = 'E:\Program Files (x86)\Vim\vimfiles\complete-dict'
 
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
-
