@@ -22,6 +22,11 @@ set expandtab
 set number 
 set hlsearch 
 
+set laststatus=2
+set t_Co=256
+let g:Powerline_symbols = 'unicode'
+set encoding=utf8
+
 filetype on 
 noswapfile
 color desert

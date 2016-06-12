@@ -46,3 +46,12 @@
 
 6. 本人对vim的建议：
     1. 增加右键打开文件夹的功能
+
+7. 更新记录
+    *. 增加powerline状态栏插件
+        我是这样跟新的（安装插件的）安装方法：windows10下，解压到vimfiles文件中，然后，修改_vimrc配置文件,
+            增加下列代码
+            set laststatus=2
+            set t_Co=256
+            let g:Powerline_symbols = 'unicode'
+            set encoding=utf8
