@@ -47,7 +47,7 @@
 6. 本人对vim的建议：
     1. 增加右键打开文件夹的功能
 
-7. 更新记录
+7. 更新记录 v1.0
     *. 增加powerline状态栏插件
         我是这样跟新的（安装插件的）安装方法：windows10下，解压到vimfiles文件中，然后，修改_vimrc配置文件,
             增加下列代码
@@ -55,3 +55,13 @@
             set t_Co=256
             let g:Powerline_symbols = 'unicode'
             set encoding=utf8
+
+
+8. 更新记录 v1.1
+    * powerline状态栏插件
+            set laststatus=2
+            set t_Co=256
+            let g:Powerline_symbols = 'unicode'
+            set encoding
+        但是发现这几行代码加了后，出现问题，于是我立马干掉这几行代码。之后，也没乱码了。爽了.
+        
