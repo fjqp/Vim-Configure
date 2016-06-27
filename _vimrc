@@ -22,6 +22,8 @@ set expandtab
 set number 
 set hlsearch 
 
+set noic
+
 filetype on 
 set noswapfile
 color desert
@@ -29,6 +31,5 @@ syntax on
 filetype plugin on
 
 let g:pydiction_location = 'D:\Program Files (x86)\Vim\vimfiles\complete-dict'
-
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
