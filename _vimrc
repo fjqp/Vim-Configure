@@ -23,12 +23,12 @@ set number
 set hlsearch 
 
 filetype on 
-noswapfile
+set noswapfile
 color desert
 syntax on
 filetype plugin on
 
-let g:pydiction_location = 'E:\Program Files (x86)\Vim\vimfiles\complete-dict'
+let g:pydiction_location = 'D:\Program Files (x86)\Vim\vimfiles\complete-dict'
 
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
