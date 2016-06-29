@@ -33,3 +33,8 @@ filetype plugin on
 let g:pydiction_location = 'D:\Program Files (x86)\Vim\vimfiles\complete-dict'
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
+
+nmap <C-q> :call CloseCurrentWindow()<CR>
+func! CloseCurrentWindow()
+    exec "q"
+endfunc
