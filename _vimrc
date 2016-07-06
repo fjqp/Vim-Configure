@@ -1,45 +1,78 @@
-map <F3> :NERDTreeToggle<CR>
-imap <F3> <ESC> :NERDTreeToggle<CR>
-let NERDTreeChDirMode=2  
-let NERDTreeShowBookmarks=1 
-let NERDTreeMinimalUI=1 
+function Main()
+    call Vundle_settings()
+    call Plugin_settings()
+    filetype plugin indent on
 
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+    call NERDTree_settings()
+    call Tagbar_settings()
+    call Syntastic_settings()
+    call Python_mode_settings()
+    call Pythoncomplete_settings()
+    call Ctrlp_settings()
 
-nmap <F9> :TagbarToggle<CR>
+    call Editor_settings()
+endfunction
 
-set autoindent 
-set tabstop=4
-set softtabstop=4
-set shiftwidth=6
-set autoindent 
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+function Vundle_settings()
+    filetype off  
+    set rtp+=$VIM/vimfiles/bundle/vundle/  
+    call vundle#rc('$VIM/vimfiles/bundle/')  
+    Bundle 'gmarik/vundle'  
+    filetype plugin indent on  
+endfunction
 
-set expandtab 
-set number 
-set hlsearch 
+function Plugin_settings()
+    Bundle "klen/python-mode"
+    Bundle "scrooloose/syntastic"
+    Bundle "scrooloose/nerdcommenter"
+    Bundle "scrooloose/nerdtree"
+    Bundle "majutsushi/tagbar"
+    Bundle "vim-scripts/pythoncomplete"
+    Bundle "ctrlpvim/ctrlp.vim"
+endfunction
 
-set noic
+function NERDTree_settings()
+    map <F3> :NERDTreeToggle<CR>
+endfunction
 
-filetype on 
-set noswapfile
-color desert
-syntax on
-filetype plugin on
+function Tagbar_settings()
+    nmap <F10> :TagbarToggle<CR>
+endfunction
+ 
+function Editor_settings()
+    syntax on
+    set sw=4
+    set ts=4
+    set sts=4
+    set expandtab
+    set nu
+    set autoindent
+endfunction
 
-let g:pydiction_location = 'D:\Program Files (x86)\Vim\vimfiles\complete-dict'
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
+function Syntastic_settings()
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
 
-nmap <C-q> :call CloseCurrentWindow()<CR>
-func! CloseCurrentWindow()
-    exec "q"
-endfunc
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
+endfunction
 
-set fileencodings=utf-8,gb2312,gbk,gb18030
-set termencoding=utf-8
-set fileformats=unix
-set encoding=prc
+function Python_mode_settings()
+    let g:pymode_rope_goto_definition_bind = "<C-]>"
+    let g:pymode_run_bind = "<C-S-e>"
+    let g:pymode_doc_bind = "<C-S-d>"
+endfunction
+
+function Pythoncomplete_settings()
+    autocmd FileType python set omnifunc=pythoncomplete#Complete  
+endfunction
+
+function Ctrlp_settings()
+    let g:ctrlp_map = '<c-p>'
+    let g:ctrlp_cmd = 'CtrlP'
+endfunction
+
+call Main()
