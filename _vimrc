@@ -30,7 +30,9 @@ function Plugin_settings()
     Bundle "vim-scripts/pythoncomplete"
     Bundle "ctrlpvim/ctrlp.vim"
     Bundle "AD7six/vim-activity-log"
-
+    Bundle "vim-scripts/Rainbow-Parentheses-Improved-and2"
+    Bundle "vim-scripts/statusline.vim"
+    Bundle "upsuper/vim-colorschemes"
 endfunction
 
 function NERDTree_settings()
@@ -42,6 +44,7 @@ function Tagbar_settings()
 endfunction
  
 function Editor_settings()
+    set encoding=utf-8
     color desert
     syntax on
     set sw=4
@@ -65,7 +68,8 @@ endfunction
 
 function Python_mode_settings()
     let g:pymode_rope_goto_definition_bind = "<C-]>"
-    let g:pymode_run_bind = "<C-S-e>"
+    "此处有BUG,故舍弃此功能
+    "let g:pymode_run_bind = "<C-S-e>"
     let g:pymode_doc_bind = "<C-S-d>"
 endfunction
 
