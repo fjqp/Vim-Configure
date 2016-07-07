@@ -29,7 +29,6 @@ function Plugin_settings()
     Bundle "majutsushi/tagbar"
     Bundle "vim-scripts/pythoncomplete"
     Bundle "ctrlpvim/ctrlp.vim"
-    Bundle "Lokaltog/vim-powerline"
 endfunction
 
 function NERDTree_settings()
@@ -41,6 +40,7 @@ function Tagbar_settings()
 endfunction
  
 function Editor_settings()
+    color desert
     syntax on
     set sw=4
     set ts=4
