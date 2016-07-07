@@ -39,7 +39,6 @@ function Plugin_settings()
 	Bundle "rkulla/pydiction"
 endfunction
 
-let g:calendar_frame = 'default'
 function NERDTree_settings()
     map <F3> :NERDTreeToggle<CR>
 endfunction
