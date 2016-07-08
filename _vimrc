@@ -31,12 +31,14 @@ function Plugin_settings()
     Bundle "majutsushi/tagbar"
     Bundle "ctrlpvim/ctrlp.vim"
     Bundle "AD7six/vim-activity-log"
-    Bundle "vim-scripts/Rainbow-Parentheses-Improved-and2"
+    Bundle "vim-scripts/Rainbow-Parentheses-Improved"
     Bundle "vim-scripts/statusline.vim"
     Bundle "upsuper/vim-colorschemes"
 	Bundle "Shougo/neocomplcache.vim"
 	Bundle "jiangmiao/auto-pairs"
 	Bundle "rkulla/pydiction"
+    Bundle "fjqp/BackgroundMusic"
+    Bundle 'fjqp/BaiduSearch'
 endfunction
 
 function NERDTree_settings()
