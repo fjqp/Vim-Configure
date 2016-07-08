@@ -4,8 +4,8 @@ VIM超炫配置文件
 ![image](https://github.com/fjqp/Vim-Configure/blob/master/images/1.gif)
 * 简洁，高雅，采用白色的主题，代表着积极向上的人生观，当您安装完毕之后，第一次打开vim时，就会忘却这个世界的种种，似乎早已远离这个世界乘着一叶扁舟，配置文件采用模块化程序设计，很好维护。
 
-我说您乘着一叶绿舟，是因为当您打开vim就会播放背景音乐，超强的代码提示，跳转代码，以及动人的音乐。
-您会享受这个配置的。
+* 我说您乘着一叶绿舟，是因为当您打开vim就会播放背景音乐，超强的代码提示，跳转代码，以及动人的音乐。 您会享受这个配置的。
+* 注意，使用的vim版本必须支持python脚本语言。不然很多不能用。
 
 ##1. How to install it on Windows 7?
 * git clone https://github.com/fjqp/vim 
