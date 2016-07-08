@@ -52,6 +52,7 @@ String		A NUL terminated string of 8-bit unsigned characters (bytes).
 Funcref		A reference to a function |Funcref|.
 		Example: function("strlen")
 
+
 List		An ordered sequence of items |List|.
 		Example: [1, 2, ['a', 'b']]
 
@@ -2431,8 +2432,8 @@ char2nr({expr}[, {utf8}])					*char2nr()*
 			char2nr("ABC")		returns 65
  		When {utf8} is omitted or zero, the current 'encoding' is used.
 		Example for "utf-8":  
-			char2nr("¨¢")		returns 225
-			char2nr("¨¢"[0])		returns 195
+			char2nr("Â¨Â¢")		returns 225
+			char2nr("Â¨Â¢"[0])		returns 195
  		With {utf8} set to 1, always treat as utf-8 characters.
 		A combining character is a separate character.
 		|nr2char()| does the opposite.
