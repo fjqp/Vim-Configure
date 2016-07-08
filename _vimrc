@@ -50,6 +50,10 @@ function Tagbar_settings()
 endfunction
  
 function Editor_settings()
+    set encoding=utf-8
+    source $VIMRUNTIME/delmenu.vim
+    source $VIMRUNTIME/menu.vim
+    language messages zh_CN.utf-8
     syntax on
     set sw=4
     set ts=4
