@@ -10,11 +10,11 @@
 * Open vim and run :BundleInstall
 
 ##2. Some key maps information.
-* <leader> cc 注释
-* <leader> cu 取消注释
-* <C-]>    跳转代码
-* <C-o]>   回跳代码
-* <tab>    python代码补全
-* <z-o>    打开折叠代码
-* <z-c>    折叠代码
-* <c-p>    打开搜索文件
+* \ + c + c 注释
+* \ + c + u 取消注释
+* ctrl + ]    跳转代码
+* ctrl + o   回跳代码
+* tab   python代码补全
+* z + o    打开折叠代码
+* z + c    折叠代码
+* ctrl + p    打开搜索文件
