@@ -11,6 +11,8 @@ function Main()
 	call Neocomplcache_settings()
 	call Auto_pairs_settings()
 	call Pydiction_settings()
+    call RunAndDebugPython_settings()
+    call PlayMp3_settings()
 	
     call Editor_settings()
 endfunction
@@ -39,6 +41,7 @@ function Plugin_settings()
 	Bundle "rkulla/pydiction"
     Bundle "fjqp/BackgroundMusic"
     Bundle 'fjqp/BaiduSearch'
+    Bundle "fjqp/RunAndDebugPython"
 endfunction
 
 function NERDTree_settings()
@@ -187,6 +190,15 @@ endfunction
 
 function Pydiction_settings()
 	let g:pydiction_location = '$VIM/vimfiles/pydiction/complete-dict'
+endfunction
+
+function RunAndDebugPython_settings()
+    map <leader>r :call RunPython()<CR>
+endfunction
+
+function PlayMp3_settings()
+    source $VIM/vimfiles/bundle/BackgroundMusic/plugin/mp3Play.vim
+    call PlayMp3()
 endfunction
 
 call Main()
