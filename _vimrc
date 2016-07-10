@@ -53,6 +53,7 @@ function Tagbar_settings()
 endfunction
  
 function Editor_settings()
+    color molokai
     set encoding=utf-8
     source $VIMRUNTIME/delmenu.vim
     source $VIMRUNTIME/menu.vim
@@ -82,7 +83,7 @@ function Python_mode_settings()
 	let g:pymode_motion = 0
 	let g:pymode_virtualenv = 0
 	let g:pymode_run = 0
-	let g:pymode_breakpoint = 0
+	let g:pymode_breakpoint = 1
 	let g:pymode_rope_completion = 0
 	let g:pymode_rope_complete_on_dot = 0
 endfunction
@@ -194,6 +195,7 @@ endfunction
 
 function RunAndDebugPython_settings()
     map <leader>r :call RunPython()<CR>
+    map <leader>d :call DebugPython()<cr>
 endfunction
 
 function PlayMp3_settings()

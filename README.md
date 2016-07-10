@@ -27,6 +27,8 @@
 * z + c    折叠代码
 * ctrl + p    打开搜索文件
 * <leader> r 运行当前python文件
+* <leader> b 在当前行插入断点
+* <leader> d 调试
  
 ##3. 还没增加的功能
 * git插件相关，感觉不需要
