@@ -36,3 +36,7 @@
 
 ##4. 遇到bug请联系邮箱
 fjqp@outlook.com
+
+##5. 更新记录
+* 删除了python-mode不完善的插件，删除了一些其他不需要的插件
+* 增加了youcompleteme插件
