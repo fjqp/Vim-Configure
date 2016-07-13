@@ -7,9 +7,8 @@ function Main()
     call Tagbar_settings()
     call Ctrlp_settings()
 	call Auto_pairs_settings()
-    call RunAndDebugPython_settings()
-    call PlayMp3_settings()
     call YouCompleteMe_settings()
+    call Syntastic_settings()
 	
     call Editor_settings()
 endfunction
@@ -28,10 +27,9 @@ function Plugin_settings()
     Bundle "ctrlpvim/ctrlp.vim"
     Bundle "vim-scripts/statusline.vim"
 	Bundle "jiangmiao/auto-pairs"
-    Bundle "fjqp/BackgroundMusic"
-    Bundle "fjqp/RunAndDebugPython"
     Bundle 'Valloric/YouCompleteMe'
     Bundle "Yggdroot/indentLine"
+    Bundle "scrooloose/syntastic"
 endfunction
 
 function NERDTree_settings()
@@ -39,14 +37,15 @@ function NERDTree_settings()
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
     let NERDTreeIgnore=['\.pyc']
-    map <F3> :NERDTreeToggle<CR>
+    map <F2> :NERDTreeToggle<CR>
 endfunction
 
 function Tagbar_settings()
-    nmap <F10> :TagbarToggle<CR>
+    nmap <F3> :TagbarToggle<CR>
 endfunction
  
 function Editor_settings()
+    color desert
     set fileformat=unix
     set encoding=utf-8
     source $VIMRUNTIME/delmenu.vim
@@ -81,21 +80,22 @@ function Auto_pairs_settings()
 	let g:AutoPairsFlyMode = 1
 endfunction
 
-function RunAndDebugPython_settings()
-    map <leader>r :call RunPython()<CR>
-    map <leader>d :call DebugPython()<cr>
-endfunction
-
-function PlayMp3_settings()
-    source $VIM/vimfiles/bundle/BackgroundMusic/plugin/mp3Play.vim
-    call PlayMp3()
-endfunction
-
 function YouCompleteMe_settings()
     nnoremap <C-]> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
     let g:ycm_error_symbol = '>E'
     let g:ycm_warning_symbol = '>W'
+endfunction
+
+function Syntastic_settings()
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
 endfunction
 
 call Main()
