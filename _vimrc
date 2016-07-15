@@ -45,7 +45,7 @@ function Tagbar_settings()
 endfunction
  
 function Editor_settings()
-    color desert
+    set go=
     set fileformat=unix
     set encoding=utf-8
     source $VIMRUNTIME/delmenu.vim
@@ -83,6 +83,7 @@ endfunction
 function YouCompleteMe_settings()
     nnoremap <C-]> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
+    let g:ycm_global_ycm_extra_conf="c:/Vim/vimfiles/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
     let g:ycm_error_symbol = '>E'
     let g:ycm_warning_symbol = '>W'
 endfunction
@@ -97,5 +98,16 @@ function Syntastic_settings()
     let g:syntastic_check_on_open = 1
     let g:syntastic_check_on_wq = 0
 endfunction
+
+function Run()
+    exec "!python %"
+endfunction
+
+function Debug()
+    exec "!python -mpdb %"
+endfunction
+
+noremap <F5> :call Run()<CR>
+noremap <F6> :call Run()<CR>
 
 call Main()
